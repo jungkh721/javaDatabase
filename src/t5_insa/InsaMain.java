@@ -83,18 +83,27 @@ public class InsaMain {
 		frame.setVisible(true);
 		
 // ------------------------위쪽은 디자인 , 아래쪽은 메소드------------------------------------------------------
-
+		
+		
+		//전체조회버튼을 마우스로 클릭시 수행
+		btnList.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				new InsaList();
+			}
+		});
 		
 		// 회원 개별 조회버튼을 마우스 클릭 실행
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("검색할 성명을 입력하세요");
 				InsaDAO dao = new InsaDAO();
-				InsaVO vo= dao.getNameSearch(name);
+				InsaVO vo = dao.getNameSearch(name);
 				
-				if(vo.getName()==null) JOptionPane.showMessageDialog(frame, "검색한 회원이 없습니다");
+				if(vo.getName() == null) JOptionPane.showMessageDialog(frame, "검색한 회원이 없습니다.");
 				else {
 					frame.dispose();
+					//System.out.println("vo(main): " + vo);
 					new InsaSearch(vo);
 				}
 			}

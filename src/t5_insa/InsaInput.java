@@ -130,8 +130,6 @@ public class InsaInput {
 			dd[i] = (i + 1) + "";
 		}
 		
-		
-		
 		JComboBox cbYY = new JComboBox(yy);
 		cbYY.setFont(new Font("굴림", Font.BOLD, 18));
 		cbYY.setBounds(294, 311, 106, 35);
@@ -182,6 +180,13 @@ public class InsaInput {
 		btnClose.setBounds(537, 10, 195, 63);
 		pn3.add(btnClose);
 	
+		// 오늘날짜를 가입화면의 날짜에 표시하기
+		InsaService service = new InsaService();
+		vo = service.getCurrentDate();
+		cbYY.setSelectedItem(vo.getCbYY());
+		cbMM.setSelectedItem(vo.getCbMM());
+		cbDD.setSelectedItem(vo.getCbDD());
+		
 		frame.setVisible(true);
 		
 	// ------------------------위쪽은 디자인 , 아래쪽은 메소드------------------------------------------------------
@@ -209,9 +214,9 @@ public class InsaInput {
 					else gender = "여자";
 					
 					// 회원명 중복처리
-					vo =dao.getNameSearch(name);
+					vo = dao.getNameSearch(name);
 					if(vo.getName() != null) {
-						JOptionPane.showMessageDialog(frame, "이미 가입된 회원입니다. 성명을 확인하세요");
+						JOptionPane.showMessageDialog(frame, "이미 가입된 회원입니다. 다시 성명을 확인하세요.");
 						txtName.requestFocus();
 					}
 					else {

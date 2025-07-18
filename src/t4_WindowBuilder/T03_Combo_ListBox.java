@@ -1,20 +1,20 @@
 package t4_WindowBuilder;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JList;
-import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+
 import javax.swing.AbstractListModel;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 
 public class T03_Combo_ListBox {
 
@@ -59,7 +59,7 @@ public class T03_Combo_ListBox {
 		pn2.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(36, 117, 344, 120);
+		scrollPane.setBounds(27, 122, 336, 149);
 		pn2.add(scrollPane);
 		
 		JList listJob = new JList();
@@ -116,29 +116,26 @@ public class T03_Combo_ListBox {
 		
 	// ------------------------위쪽은 디자인 , 아래쪽은 메소드------------------------------------------------------
 
-		//직업 리스트	박스 선택할때 수행
+	  // 직업 리스트박스를 선택할때 수행
 		btnList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String msg="";
-				//Object[] jobs=listJob.getSelectedValues();
-				Object[] jobs =listJob.getSelectedValuesList().toArray();
-				for(Object job : jobs) msg += job +"/";
-				msg  =msg.substring(0,msg.length()-1);
+				String msg = "";
+				//Object[] jobs = listJob.getSelectedValues();
+				Object[] jobs = listJob.getSelectedValuesList().toArray();
+				for(Object job : jobs) msg += job + "/";
+				msg = msg.substring(0, msg.length()-1);
 				
-				
-				lblMessage.setText(msg);	
-			}
-			
-		});
-		
-		//직업 콥모박스 선택할때 수행
-		comboJob.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String msg =comboJob.getSelectedItem().toString()+"("+comboJob.getSelectedItem()+")";
 				lblMessage.setText(msg);
 			}
 		});
 		
+		// 직업 콤보박스를 선택할때 수행
+		comboJob.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String msg = comboJob.getSelectedItem().toString() + "("+comboJob.getSelectedIndex()+")";
+				lblMessage.setText(msg);
+			}
+		});
 		
 		
 		// 종료버튼을 마우스로 클릭시 수행

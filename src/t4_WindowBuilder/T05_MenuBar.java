@@ -39,23 +39,23 @@ public class T05_MenuBar {
 		frame.getContentPane().add(toolBar, BorderLayout.NORTH);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(T05_MenuBar.class.getResource("/t4_WindowBuilder/images/Image20250717122406.jpg")));
+		btnNewButton.setIcon(new ImageIcon(T05_MenuBar.class.getResource("/t4_WindowBuilder/images/new.jpg")));
 		toolBar.add(btnNewButton);
 		
 		JButton btnOpen = new JButton("");
-		btnOpen.setIcon(new ImageIcon(T05_MenuBar.class.getResource("/t4_WindowBuilder/images/Image20250717122413.jpg")));
+		btnOpen.setIcon(new ImageIcon(T05_MenuBar.class.getResource("/t4_WindowBuilder/images/open.jpg")));
 		toolBar.add(btnOpen);
 		
 		JButton btnSave = new JButton("");
-		btnSave.setIcon(new ImageIcon(T05_MenuBar.class.getResource("/t4_WindowBuilder/images/Image20250717122418.jpg")));
+		btnSave.setIcon(new ImageIcon(T05_MenuBar.class.getResource("/t4_WindowBuilder/images/save.jpg")));
 		toolBar.add(btnSave);
 		
-		//JSeparator separator_1 = new JSeparator();
-		//toolBar.add(separator_1);
+//		JSeparator separator_1 = new JSeparator();
+//		toolBar.add(separator_1);
 		toolBar.addSeparator();
 		
 		JButton btnExit = new JButton("");
-		btnExit.setIcon(new ImageIcon(T05_MenuBar.class.getResource("/t4_WindowBuilder/images/Image20250717122416.jpg")));
+		btnExit.setIcon(new ImageIcon(T05_MenuBar.class.getResource("/t4_WindowBuilder/images/exit.jpg")));
 		toolBar.add(btnExit);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -77,6 +77,8 @@ public class T05_MenuBar {
 		mnNewMenu.add(separator);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Exit");
+		mnNewMenu.add(mntmNewMenuItem_3);
+		
 		JMenu mnNewMenu_1 = new JMenu("Edit");
 		menuBar.add(mnNewMenu_1);
 		
@@ -90,16 +92,16 @@ public class T05_MenuBar {
 		frame.setVisible(true);
 		
 // ------------------------위쪽은 디자인 , 아래쪽은 메소드------------------------------------------------------
+
 		
-		
-		//about 클릭시 수행
+		// About  버튼 클릭시 수행
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(frame, "SpringGroup Ver. 1.0");
+				JOptionPane.showMessageDialog(frame, "SpringGroup Ver 1.0");
 			}
-		});
+		});		
 		
-		//종료버튼을 마우스 클릭후 수행
+		// 종료버튼을 마우스로 클릭시 수행
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int ans = JOptionPane.showConfirmDialog(frame, "작업을 종료할까요?", "작업종료", JOptionPane.YES_NO_OPTION);
@@ -107,18 +109,13 @@ public class T05_MenuBar {
 			}
 		});
 		
-		//메뉴 Exit 버튼 클릭시 수행
+		// 메뉴의 Exit버튼 클릭시 수행
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int ans = JOptionPane.showConfirmDialog(frame, "작업을 종료할까요?", "작업종료", JOptionPane.YES_NO_OPTION);
 				if(ans == 0) System.exit(0);
 			}
 		});
-		
-
-		
-
-		
 	}
 
 }

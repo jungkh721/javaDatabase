@@ -137,6 +137,7 @@ public class T01_Basic {
 		
 		// 회원가입버튼 클릭시 수행
 		btnInput.addActionListener(new ActionListener() {
+			@SuppressWarnings({ "deprecation", "unused" })
 			public void actionPerformed(ActionEvent e) {
 				String mid = txtMid.getText();
 				String pwd = txtPwd.getText();

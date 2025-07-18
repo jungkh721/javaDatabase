@@ -1,21 +1,19 @@
 package t4_WindowBuilder;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.ButtonGroup;
-import javax.swing.JCheckBox;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class T02_Radio_Checkbox {
 
@@ -32,6 +30,7 @@ public class T02_Radio_Checkbox {
 
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("라디오/체크박스 연습");
 		frame.setSize(800, 600);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
@@ -144,42 +143,40 @@ public class T02_Radio_Checkbox {
 		
 // ----------------위쪽은 디자인 , 아래쪽은 메소드---------------------------------------------------
 		
-		//취미 출력버튼 클릭시 수행
+		// 취미 출력버튼 클릭시 수행
 		btnHobby.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String hobby ="선택하신 취미는?";
-				if(ckHobby1.isSelected()) hobby += ckHobby1.getText()+ "/";
-				if(ckHobby2.isSelected()) hobby += ckHobby2.getText()+ "/";
-				if(ckHobby3.isSelected()) hobby += ckHobby3.getText()+ "/";
-				if(ckHobby4.isSelected()) hobby += ckHobby4.getText()+ "/";
-				if(ckHobby5.isSelected()) hobby += ckHobby5.getText()+ "/";
+				String hobby = "선택하신 취미는? ";
+				if(ckHobby1.isSelected()) hobby += ckHobby1.getText() + "/";
+				if(ckHobby2.isSelected()) hobby += ckHobby2.getText() + "/";
+				if(ckHobby3.isSelected()) hobby += ckHobby3.getText() + "/";
+				if(ckHobby4.isSelected()) hobby += ckHobby4.getText() + "/";
+				if(ckHobby5.isSelected()) hobby += ckHobby5.getText() + "/";
 				
-				hobby =hobby.substring(0,hobby.length()-1);
+				hobby = hobby.substring(0, hobby.length()-1);
 				
 				lblMessage.setText(hobby);
 			}
 		});
 		
-		
-		//성별 출력버튼 클릭시 수행
+		// 성별 출력버튼 클릭시 수행
 		btnGender.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String gender ="선택하신 성별은??";
+				String gender = "선택하신 성별은? ";
 				if(rdMale.isSelected()) gender += rdMale.getText();
-				else  gender += rdMale.getText();
-				
+				else gender += rdFemale.getText();
+					
 				lblMessage.setText(gender);
-				
-			}
-		});
-		//종료 출력버튼 클릭시 수행
-		btnExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int ans =JOptionPane.showConfirmDialog(frame,	 "작업을 종료 할까요??","작업종료",JOptionPane.YES_NO_CANCEL_OPTION);
-				if(ans ==0)System.exit(0);
 			}
 		});
 		
+		// 종료버튼을 마우스로 클릭시 수행
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int ans = JOptionPane.showConfirmDialog(frame, "작업을 종료할까요?", "작업종료", JOptionPane.YES_NO_OPTION);
+				if(ans == 0) System.exit(0);
+			}
+		});
 		
 	}
 }

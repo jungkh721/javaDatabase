@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
-public class T04_images {
+public class T04_images2 {
 	JLabel lblImg1, lblImg2, lblImg3, lblImg4;
 	JLabel lbMessage;
 	int img1Cnt=0, img2Cnt=0, img3Cnt=0, img4Cnt=0;
@@ -21,10 +21,10 @@ public class T04_images {
 	private JFrame frame;
 
 	public static void main(String[] args) {
-		new T04_images();
+		new T04_images2();
 	}
 
-	public T04_images() {
+	public T04_images2() {
 		initialize();
 	}
 
@@ -88,22 +88,22 @@ public class T04_images {
 		pn2.setLayout(null);
 		
 		lblImg1 = new JLabel("");
-		lblImg1.setIcon(new ImageIcon(T04_images.class.getResource("/t4_WindowBuilder/images/1.jpg")));
+		lblImg1.setIcon(new ImageIcon(T04_images2.class.getResource("/t4_WindowBuilder/images/1.jpg")));
 		lblImg1.setBounds(10, 10, 233, 390);
 		pn2.add(lblImg1);
 		
 		lblImg2 = new JLabel("");
-		lblImg2.setIcon(new ImageIcon(T04_images.class.getResource("/t4_WindowBuilder/images/2.jpg")));
+		lblImg2.setIcon(new ImageIcon(T04_images2.class.getResource("/t4_WindowBuilder/images/2.jpg")));
 		lblImg2.setBounds(253, 10, 233, 390);
 		pn2.add(lblImg2);
 		
 		lblImg3 = new JLabel("");
-		lblImg3.setIcon(new ImageIcon(T04_images.class.getResource("/t4_WindowBuilder/images/5.jpg")));
+		lblImg3.setIcon(new ImageIcon(T04_images2.class.getResource("/t4_WindowBuilder/images/5.jpg")));
 		lblImg3.setBounds(496, 10, 233, 390);
 		pn2.add(lblImg3);
 		
 		lblImg4 = new JLabel("");
-		lblImg4.setIcon(new ImageIcon(T04_images.class.getResource("/t4_WindowBuilder/images/4.jpg")));
+		lblImg4.setIcon(new ImageIcon(T04_images2.class.getResource("/t4_WindowBuilder/images/4.jpg")));
 		lblImg4.setBounds(739, 10, 233, 390);
 		pn2.add(lblImg4);
 		
@@ -126,10 +126,8 @@ public class T04_images {
 		// 1번보기 클릭시 수행
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				allClose();
 				lblImg1.setVisible(true);
-				lblImg2.setVisible(false);
-				lblImg3.setVisible(false);
-				lblImg4.setVisible(false);
 				img1Cnt++;
 				displayCount();
 			}
@@ -138,10 +136,8 @@ public class T04_images {
 		// 2번보기 클릭시 수행
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lblImg1.setVisible(false);
+				allClose();
 				lblImg2.setVisible(true);
-				lblImg3.setVisible(false);
-				lblImg4.setVisible(false);
 				img2Cnt++;
 				displayCount();
 			}
@@ -150,10 +146,8 @@ public class T04_images {
 		// 3번보기 클릭시 수행
 		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lblImg1.setVisible(false);
-				lblImg2.setVisible(false);
+				allClose();
 				lblImg3.setVisible(true);
-				lblImg4.setVisible(false);
 				img3Cnt++;
 				displayCount();
 			}
@@ -162,9 +156,7 @@ public class T04_images {
 		// 4번보기 클릭시 수행
 		btn4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lblImg1.setVisible(false);
-				lblImg2.setVisible(false);
-				lblImg3.setVisible(false);
+				allClose();
 				lblImg4.setVisible(true);
 				img4Cnt++;
 				displayCount();
@@ -174,33 +166,22 @@ public class T04_images {
 		// 랜덤보기 클릭시 수행
 		btnRandom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				allClose();
 				int rand = (int) (Math.random()*4) + 1;
 				
 				if(rand == 1) {
 					lblImg1.setVisible(true);
-					lblImg2.setVisible(false);
-					lblImg3.setVisible(false);
-					lblImg4.setVisible(false);
 					img1Cnt++;
 				}
 				else if(rand == 2) {
-					lblImg1.setVisible(false);
 					lblImg2.setVisible(true);
-					lblImg3.setVisible(false);
-					lblImg4.setVisible(false);
 					img2Cnt++;
 				}
 				else if(rand == 3) {
-					lblImg1.setVisible(false);
-					lblImg2.setVisible(false);
 					lblImg3.setVisible(true);
-					lblImg4.setVisible(false);
 					img3Cnt++;
 				}
 				else if(rand == 4) {
-					lblImg1.setVisible(false);
-					lblImg2.setVisible(false);
-					lblImg3.setVisible(false);
 					lblImg4.setVisible(true);
 					img4Cnt++;
 				}
